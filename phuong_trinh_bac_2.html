@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>giai phuong trinh bac 2</title>
+</head>
+<body>
+    <p>giai phuong tring ax^2 + bx + c = 0</p>
+    <p>nhap gia tri a: <input id="a" type="text" name="a"></p>
+    <p>nhap gia tri b: <input id="b" type="text" name="b"></p>
+    <p>nhap gia tri c: <input id="c" type="text" name="c"></p>
+    <button id="ket_qua">Ket qua</button>
+    <p id="in"></p>
+    <script>
+        let X = document.getElementById("ket_qua");
+        X.onclick = function () {
+            let a = +document.getElementById("a").value;
+            let b = +document.getElementById("b").value;
+            let c = +document.getElementById("c").value;
+            if ( a == 0 ) {
+                if ( b == 0 ) {
+                    if ( c == 0) {
+                        document.getElementById('in').innerHTML = "phuong trinh vo so nghiem";
+                    }
+                    else {
+                        document.getElementById('in').innerHTML = "phuong trinh vo nghiem"
+                    }
+
+                }
+                else {
+                    let x = -c/a;
+                    document.getElementById('in').innerHTML = "x = " + x;
+                }
+            }
+            else {
+                let delta = b*b-4*a*c;
+                if (delta < 0){
+                    document.getElementById('in').innerHTML = "phuong trinh vo nghiem"
+                }
+                else if (delta == 0){
+                    let x = -b/a;
+                    document.getElementById('in').innerHTML = "x = " + x;
+                }
+                else {
+                    let x1 = (-b - Math.sqrt(delta))/(2*a);
+                    let x2 = (-b + Math.sqrt(delta))/(2*a);
+
+                    document.getElementById('in').innerHTML = "x1 = " + x1 + "<br>" + "x2 =" + x2;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
